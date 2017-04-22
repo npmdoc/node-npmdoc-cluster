@@ -1,0 +1,1090 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://learnboost.github.com/cluster"
+
+    >cluster (v0.7.7)</a>
+</h1>
+<h4>extensible multi-core server manager</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cluster">module cluster</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.cli">
+            function <span class="apidocSignatureSpan">cluster.</span>cli
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl">
+            function <span class="apidocSignatureSpan">cluster.</span>repl
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cluster.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cluster.cli">module cluster.cli</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.cli.cli">
+            function <span class="apidocSignatureSpan">cluster.</span>cli
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.cli.define">
+            function <span class="apidocSignatureSpan">cluster.cli.</span>define
+            <span class="apidocSignatureSpan">(name, fn, desc)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cluster.repl">module cluster.repl</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.repl">
+            function <span class="apidocSignatureSpan">cluster.</span>repl
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.define">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>define
+            <span class="apidocSignatureSpan">(name, fn, desc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.help">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>help
+            <span class="apidocSignatureSpan">(master, sock)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.kill">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>kill
+            <span class="apidocSignatureSpan">(master, sock, id, signal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.pids">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>pids
+            <span class="apidocSignatureSpan">(master, sock)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.restart">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>restart
+            <span class="apidocSignatureSpan">(master, sock)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.shutdown">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>shutdown
+            <span class="apidocSignatureSpan">(master, sock)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.spawn">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>spawn
+            <span class="apidocSignatureSpan">(master, sock, n, signal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.stats">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>stats
+            <span class="apidocSignatureSpan">(master, sock)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.repl.stop">
+            function <span class="apidocSignatureSpan">cluster.repl.</span>stop
+            <span class="apidocSignatureSpan">(master, sock)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cluster.utils">module cluster.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.utils.formatBytes">
+            function <span class="apidocSignatureSpan">cluster.utils.</span>formatBytes
+            <span class="apidocSignatureSpan">(bytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.utils.formatDateRange">
+            function <span class="apidocSignatureSpan">cluster.utils.</span>formatDateRange
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.utils.frame">
+            function <span class="apidocSignatureSpan">cluster.utils.</span>frame
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.utils.toArray">
+            function <span class="apidocSignatureSpan">cluster.utils.</span>toArray
+            <span class="apidocSignatureSpan">(args, index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cluster.utils.unshiftListener">
+            function <span class="apidocSignatureSpan">cluster.utils.</span>unshiftListener
+            <span class="apidocSignatureSpan">(obj, event, fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cluster" id="apidoc.module.cluster">module cluster</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.cli" id="apidoc.element.cluster.cli">
+        function <span class="apidocSignatureSpan">cluster.</span>cli
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cli = function (){
+  return function(master){
+    requirePIDs(master);
+
+    // augment master
+    master.killall = function(sig){
+      var pid = master.pidof(&#x27;master&#x27;);
+      try {
+        // signal master
+        process.kill(pid, sig);
+      } catch (err) {
+        if (&#x27;ESRCH&#x27; != err.code) throw err;
+        // signal children individually
+        master.workerpids().forEach(function(pid){
+          try {
+            process.kill(pid, sig);
+          } catch (err) {
+            if (&#x27;ESRCH&#x27; != err.code) throw err;
+          }
+        });
+      }
+    };
+
+    var args = process.argv.slice(2)
+      , len = commands.length
+      , command
+      , arg;
+
+    // parse arguments
+    while (args.length) {
+      arg = args.shift();
+      for (var i = 0; i &#x3c; len; ++i) {
+        command = commands[i];
+        if (~command.flags.indexOf(arg)) {
+          command.callback(master);
+          master.preventDefault = true;
+        }
+      }
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var cluster = require(&#x27;cluster&#x27;)
+  , app = require(&#x27;./app&#x27;);
+
+cluster(app)
+  .use(cluster.logger(&#x27;logs&#x27;))
+  .use(cluster.stats())
+  .use(cluster.pidfiles(&#x27;pids&#x27;))
+  .use(cluster.<span class="apidocCodeKeywordSpan">cli</span>())
+  .use(cluster.repl(8888))
+  .listen(3000);
+```
+
+Note that cluster does _not_ create these directories for you, so you may want to:
+
+$ mkdir {logs,pids}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl" id="apidoc.element.cluster.repl">
+        function <span class="apidocSignatureSpan">cluster.</span>repl
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repl = function (){
+  var args = arguments;
+  if (!args.length) throw new Error(&#x27;repl() plugin requires port/host or path&#x27;);
+  return function(master){
+    var server
+      , sockets = [];
+
+
+    // start repl
+    function start(){
+      // TCP or unix-domain socket repl
+      server = net.createServer(function(sock){
+        sockets.push(sock);
+        var ctx = repl.start(&#x27;cluster&#x3e; &#x27;, sock).context;
+        master.emit(&#x27;repl socket&#x27;, sock);
+
+        // augment socket to provide some formatting methods
+        sock.title = function(str){ this.write(&#x27;\n  \033[36m&#x27; + str + &#x27;\033[0m\n&#x27;); }
+        sock.row = function(key, val){ this.write(&#x27;  \033[90m&#x27; + key + &#x27;:\033[0m &#x27; + val + &#x27;\n&#x27;); }
+
+        // merge commands into context
+        // executing in context of master
+        Object.keys(exports).forEach(function(cmd){
+          ctx[cmd] = function(){
+            var args = Array.prototype.slice.call(arguments);
+            args.unshift(master, sock);
+            return exports[cmd].apply(master, args);
+          };
+        });
+      });
+
+      // Apply all arguments given
+      server.listen.apply(server, args);
+    }
+
+    // initial master starts immediately
+    // replacements starts when the previous
+    // has closed
+    master.on(master.isChild
+        ? &#x27;restart&#x27;
+        : &#x27;start&#x27;, start);
+
+    // restart notification
+    master.on(&#x27;restarting&#x27;, function(){
+      sockets.forEach(function(sock){
+        if (sock.fd) {
+          sock.write(&#x27;\n\033[33mrestarting\033[0m - closing connection soon\n&#x27;);
+        }
+      });
+    });
+
+    // close
+    master.on(&#x27;close&#x27;, function(){
+      sockets.forEach(function(sock){
+        sock.fd &#x26;&#x26; sock.end();
+      });
+      if (server &#x26;&#x26; server.fd) server.close();
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , app = require(&#x27;./app&#x27;);
+
+cluster(app)
+  .use(cluster.logger(&#x27;logs&#x27;))
+  .use(cluster.stats())
+  .use(cluster.pidfiles(&#x27;pids&#x27;))
+  .use(cluster.cli())
+  .use(cluster.<span class="apidocCodeKeywordSpan">repl</span>(8888))
+  .listen(3000);
+```
+
+Note that cluster does _not_ create these directories for you, so you may want to:
+
+$ mkdir {logs,pids}
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cluster.cli" id="apidoc.module.cluster.cli">module cluster.cli</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.cli.cli" id="apidoc.element.cluster.cli.cli">
+        function <span class="apidocSignatureSpan">cluster.</span>cli
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cli = function (){
+  return function(master){
+    requirePIDs(master);
+
+    // augment master
+    master.killall = function(sig){
+      var pid = master.pidof(&#x27;master&#x27;);
+      try {
+        // signal master
+        process.kill(pid, sig);
+      } catch (err) {
+        if (&#x27;ESRCH&#x27; != err.code) throw err;
+        // signal children individually
+        master.workerpids().forEach(function(pid){
+          try {
+            process.kill(pid, sig);
+          } catch (err) {
+            if (&#x27;ESRCH&#x27; != err.code) throw err;
+          }
+        });
+      }
+    };
+
+    var args = process.argv.slice(2)
+      , len = commands.length
+      , command
+      , arg;
+
+    // parse arguments
+    while (args.length) {
+      arg = args.shift();
+      for (var i = 0; i &#x3c; len; ++i) {
+        command = commands[i];
+        if (~command.flags.indexOf(arg)) {
+          command.callback(master);
+          master.preventDefault = true;
+        }
+      }
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var cluster = require(&#x27;cluster&#x27;)
+  , app = require(&#x27;./app&#x27;);
+
+cluster(app)
+  .use(cluster.logger(&#x27;logs&#x27;))
+  .use(cluster.stats())
+  .use(cluster.pidfiles(&#x27;pids&#x27;))
+  .use(cluster.<span class="apidocCodeKeywordSpan">cli</span>())
+  .use(cluster.repl(8888))
+  .listen(3000);
+```
+
+Note that cluster does _not_ create these directories for you, so you may want to:
+
+$ mkdir {logs,pids}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.cli.define" id="apidoc.element.cluster.cli.define">
+        function <span class="apidocSignatureSpan">cluster.cli.</span>define
+        <span class="apidocSignatureSpan">(name, fn, desc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (name, fn, desc){
+  commands.push({
+      flags: name.split(/ *, */)
+    , desc: desc
+    , callback: fn
+  });
+  return exports;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return stats;
+};
+
+/**
+ * REPL statistics command.
+ */
+
+repl.<span class="apidocCodeKeywordSpan">define</span>(&#x27;stats&#x27;, function(master, sock){
+var active = master.children.length
+  , total = master.stats.workersSpawned
+  , deaths = master.stats.workersKilled
+  , restarts = master.stats.restarts;
+
+// master stats
+sock.title(&#x27;Master&#x27;);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cluster.repl" id="apidoc.module.cluster.repl">module cluster.repl</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.repl" id="apidoc.element.cluster.repl.repl">
+        function <span class="apidocSignatureSpan">cluster.</span>repl
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repl = function (){
+  var args = arguments;
+  if (!args.length) throw new Error(&#x27;repl() plugin requires port/host or path&#x27;);
+  return function(master){
+    var server
+      , sockets = [];
+
+
+    // start repl
+    function start(){
+      // TCP or unix-domain socket repl
+      server = net.createServer(function(sock){
+        sockets.push(sock);
+        var ctx = repl.start(&#x27;cluster&#x3e; &#x27;, sock).context;
+        master.emit(&#x27;repl socket&#x27;, sock);
+
+        // augment socket to provide some formatting methods
+        sock.title = function(str){ this.write(&#x27;\n  \033[36m&#x27; + str + &#x27;\033[0m\n&#x27;); }
+        sock.row = function(key, val){ this.write(&#x27;  \033[90m&#x27; + key + &#x27;:\033[0m &#x27; + val + &#x27;\n&#x27;); }
+
+        // merge commands into context
+        // executing in context of master
+        Object.keys(exports).forEach(function(cmd){
+          ctx[cmd] = function(){
+            var args = Array.prototype.slice.call(arguments);
+            args.unshift(master, sock);
+            return exports[cmd].apply(master, args);
+          };
+        });
+      });
+
+      // Apply all arguments given
+      server.listen.apply(server, args);
+    }
+
+    // initial master starts immediately
+    // replacements starts when the previous
+    // has closed
+    master.on(master.isChild
+        ? &#x27;restart&#x27;
+        : &#x27;start&#x27;, start);
+
+    // restart notification
+    master.on(&#x27;restarting&#x27;, function(){
+      sockets.forEach(function(sock){
+        if (sock.fd) {
+          sock.write(&#x27;\n\033[33mrestarting\033[0m - closing connection soon\n&#x27;);
+        }
+      });
+    });
+
+    // close
+    master.on(&#x27;close&#x27;, function(){
+      sockets.forEach(function(sock){
+        sock.fd &#x26;&#x26; sock.end();
+      });
+      if (server &#x26;&#x26; server.fd) server.close();
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , app = require(&#x27;./app&#x27;);
+
+cluster(app)
+  .use(cluster.logger(&#x27;logs&#x27;))
+  .use(cluster.stats())
+  .use(cluster.pidfiles(&#x27;pids&#x27;))
+  .use(cluster.cli())
+  .use(cluster.<span class="apidocCodeKeywordSpan">repl</span>(8888))
+  .listen(3000);
+```
+
+Note that cluster does _not_ create these directories for you, so you may want to:
+
+$ mkdir {logs,pids}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.define" id="apidoc.element.cluster.repl.define">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>define
+        <span class="apidocSignatureSpan">(name, fn, desc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (name, fn, desc){
+  (exports[name] = fn).description = desc;
+  return exports;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return stats;
+};
+
+/**
+ * REPL statistics command.
+ */
+
+repl.<span class="apidocCodeKeywordSpan">define</span>(&#x27;stats&#x27;, function(master, sock){
+var active = master.children.length
+  , total = master.stats.workersSpawned
+  , deaths = master.stats.workersKilled
+  , restarts = master.stats.restarts;
+
+// master stats
+sock.title(&#x27;Master&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.help" id="apidoc.element.cluster.repl.help">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>help
+        <span class="apidocSignatureSpan">(master, sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">help = function (master, sock){
+  sock.title(&#x27;Commands&#x27;);
+  Object.keys(exports).forEach(function(cmd){
+    if (&#x27;define&#x27; == cmd) return;
+
+    var fn = exports[cmd]
+      , params = fn.toString().match(/^function +\((.*?)\)/)[1]
+      , params = params.split(/ *, */).slice(2);
+
+    sock.row(
+      cmd + &#x27;(&#x27; + params.join(&#x27;, &#x27;) + &#x27;)&#x27;
+      , fn.description);
+  });
+  sock.write(&#x27;\n&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.kill" id="apidoc.element.cluster.repl.kill">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>kill
+        <span class="apidocSignatureSpan">(master, sock, id, signal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">kill = function (master, sock, id, signal){
+  var worker = master.children[id];
+  if (worker) {
+    worker.proc.kill(signal);
+    sock.write(&#x27;sent \033[36m&#x27; + (signal || &#x27;SIGTERM&#x27;) + &#x27;\033[0m to worker #&#x27; + id + &#x27;\n&#x27;);
+  } else {
+    sock.write(&#x27;invalid worker id\n&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+requirePIDs(master);
+
+// augment master
+master.killall = function(sig){
+  var pid = master.pidof(&#x27;master&#x27;);
+  try {
+    // signal master
+    process.<span class="apidocCodeKeywordSpan">kill</span>(pid, sig);
+  } catch (err) {
+    if (&#x27;ESRCH&#x27; != err.code) throw err;
+    // signal children individually
+    master.workerpids().forEach(function(pid){
+      try {
+        process.kill(pid, sig);
+      } catch (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.pids" id="apidoc.element.cluster.repl.pids">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>pids
+        <span class="apidocSignatureSpan">(master, sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pids = function (master, sock){
+  sock.title(&#x27;pids&#x27;);
+  sock.row(&#x27;master&#x27;, process.pid);
+  master.children.forEach(function(worker){
+    sock.row(&#x27;worker #&#x27; + worker.id, worker.proc.pid);
+  });
+  sock.write(&#x27;\n&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.restart" id="apidoc.element.cluster.repl.restart">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>restart
+        <span class="apidocSignatureSpan">(master, sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restart = function (master, sock){
+  master.restart();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}, &#x27;Hard shutdown&#x27;);
+
+/**
+ * Gracefully restart all workers.
+ */
+
+define(&#x27;restart&#x27;, function(master, sock){
+  master.<span class="apidocCodeKeywordSpan">restart</span>();
+}, &#x27;Gracefully restart all workers&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.shutdown" id="apidoc.element.cluster.repl.shutdown">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>shutdown
+        <span class="apidocSignatureSpan">(master, sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shutdown = function (master, sock){
+  master.close();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.spawn" id="apidoc.element.cluster.repl.spawn">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>spawn
+        <span class="apidocSignatureSpan">(master, sock, n, signal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">spawn = function (master, sock, n, signal){
+  n = n || 1;
+  if (n &#x3c; 0) {
+    n = Math.abs(n);
+    sock.write(&#x27;removing &#x27; + n + &#x27; worker&#x27; + (n &#x3e; 1 ? &#x27;s&#x27; : &#x27;&#x27;)
+      + &#x27; with &#x27; + (signal || &#x27;SIGQUIT&#x27;) + &#x27;\n&#x27;);
+    master.remove(n, signal);
+  } else {
+    sock.write(&#x27;spawning &#x27; + n + &#x27; worker&#x27; + (n &#x3e; 1 ? &#x27;s&#x27; : &#x27;&#x27;) + &#x27;\n&#x27;);
+    master.spawn(n);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (n &#x3c; 0) {
+   n = Math.abs(n);
+   sock.write(&#x27;removing &#x27; + n + &#x27; worker&#x27; + (n &#x3e; 1 ? &#x27;s&#x27; : &#x27;&#x27;)
+     + &#x27; with &#x27; + (signal || &#x27;SIGQUIT&#x27;) + &#x27;\n&#x27;);
+   master.remove(n, signal);
+ } else {
+   sock.write(&#x27;spawning &#x27; + n + &#x27; worker&#x27; + (n &#x3e; 1 ? &#x27;s&#x27; : &#x27;&#x27;) + &#x27;\n&#x27;);
+   master.<span class="apidocCodeKeywordSpan">spawn</span>(n);
+ }
+}, &#x27;Spawn one or more additional workers, or remove one or more&#x27;);
+
+/**
+* Output process ids.
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.stats" id="apidoc.element.cluster.repl.stats">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>stats
+        <span class="apidocSignatureSpan">(master, sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stats = function (master, sock){
+  var active = master.children.length
+    , total = master.stats.workersSpawned
+    , deaths = master.stats.workersKilled
+    , restarts = master.stats.restarts;
+
+  // master stats
+  sock.title(&#x27;Master&#x27;);
+  if (os) sock.row(&#x27;os&#x27;, os.type() + &#x27; &#x27; + os.release());
+  sock.row(&#x27;state&#x27;, master.state);
+  sock.row(&#x27;started&#x27;, master.stats.start.toUTCString());
+  sock.row(&#x27;uptime&#x27;, utils.formatDateRange(new Date, master.stats.start));
+  sock.row(&#x27;restarts&#x27;, restarts);
+  sock.row(&#x27;workers&#x27;, active);
+  sock.row(&#x27;deaths&#x27;, deaths);
+
+  // resources
+  if (os) {
+    sock.title(&#x27;Resources&#x27;);
+    sock.row(&#x27;load average&#x27;, os.loadavg().map(function(n){ return n.toFixed(2); }).join(&#x27; &#x27;));
+    sock.row(&#x27;cores utilized&#x27;, active + &#x27; / &#x27; + os.cpus().length);
+    var free = utils.formatBytes(master.stats.freemem);
+    var total = utils.formatBytes(master.stats.totalmem);
+    sock.row(&#x27;memory at boot (free / total)&#x27;, free + &#x27; / &#x27; + total);
+    var free = utils.formatBytes(os.freemem());
+    var total = utils.formatBytes(os.totalmem());
+    sock.row(&#x27;memory now (free / total)&#x27;, free + &#x27; / &#x27; + total);
+  }
+
+  // worker stats
+  sock.title(&#x27;Workers&#x27;);
+
+  // connections
+  if (master.connectionStats) {
+    sock.row(&#x27;connections total&#x27;, sum(master.children, &#x27;connectionsTotal&#x27;));
+    sock.row(&#x27;connections active&#x27;, sum(master.children, &#x27;connectionsActive&#x27;));
+  }
+
+  // requests
+  if (master.requestStats) {
+    sock.row(&#x27;requests total&#x27;, sum(master.children, &#x27;requestsTotal&#x27;));
+  }
+
+  master.children.forEach(function(worker){
+    var stats = &#x27;&#x27;
+      , piped = [];
+
+    // uptime
+    stats += utils.formatDateRange(new Date, worker.stats.start);
+
+    // connections
+    if (master.connectionStats) {
+      piped.push(worker.stats.connectionsActive);
+      piped.push(worker.stats.connectionsTotal);
+    }
+
+    // requests
+    if (master.requestStats) {
+      piped.push(worker.stats.requestsTotal);
+    }
+
+    if (piped.length) {
+      stats += &#x27; &#x27; + piped.join(&#x27;\033[90m|\033[0m&#x27;);
+    }
+
+    sock.row(worker.id, stats);
+  });
+  sock.write(&#x27;\n&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var cluster = require(&#x27;cluster&#x27;)
+  , app = require(&#x27;./app&#x27;);
+
+cluster(app)
+  .use(cluster.logger(&#x27;logs&#x27;))
+  .use(cluster.<span class="apidocCodeKeywordSpan">stats</span>())
+  .use(cluster.pidfiles(&#x27;pids&#x27;))
+  .use(cluster.cli())
+  .use(cluster.repl(8888))
+  .listen(3000);
+```
+
+Note that cluster does _not_ create these directories for you, so you may want to:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.repl.stop" id="apidoc.element.cluster.repl.stop">
+        function <span class="apidocSignatureSpan">cluster.repl.</span>stop
+        <span class="apidocSignatureSpan">(master, sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (master, sock){
+  master.destroy();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cluster.utils" id="apidoc.module.cluster.utils">module cluster.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.utils.formatBytes" id="apidoc.element.cluster.utils.formatBytes">
+        function <span class="apidocSignatureSpan">cluster.utils.</span>formatBytes
+        <span class="apidocSignatureSpan">(bytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">formatBytes = function (bytes) {
+  var kb = 1024
+    , mb = 1024 * kb
+    , gb = 1024 * mb;
+  if (bytes &#x3c; kb) return bytes + &#x27;b&#x27;;
+  if (bytes &#x3c; mb) return (bytes / kb).toFixed(2) + &#x27;kb&#x27;;
+  if (bytes &#x3c; gb) return (bytes / mb).toFixed(2) + &#x27;mb&#x27;;
+  return (bytes / gb).toFixed(2) + &#x27;gb&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+sock.row(&#x27;deaths&#x27;, deaths);
+
+// resources
+if (os) {
+  sock.title(&#x27;Resources&#x27;);
+  sock.row(&#x27;load average&#x27;, os.loadavg().map(function(n){ return n.toFixed(2); }).join(&#x27; &#x27;));
+  sock.row(&#x27;cores utilized&#x27;, active + &#x27; / &#x27; + os.cpus().length);
+  var free = utils.<span class="apidocCodeKeywordSpan">formatBytes</span>(master.stats.freemem);
+  var total = utils.formatBytes(master.stats.totalmem);
+  sock.row(&#x27;memory at boot (free / total)&#x27;, free + &#x27; / &#x27; + total);
+  var free = utils.formatBytes(os.freemem());
+  var total = utils.formatBytes(os.totalmem());
+  sock.row(&#x27;memory now (free / total)&#x27;, free + &#x27; / &#x27; + total);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.utils.formatDateRange" id="apidoc.element.cluster.utils.formatDateRange">
+        function <span class="apidocSignatureSpan">cluster.utils.</span>formatDateRange
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">formatDateRange = function (a, b) {
+  var diff = a &#x3e; b ? a - b : b - a
+    , second = 1000
+    , minute = second * 60
+    , hour = minute * 60
+    , day = hour * 24;
+
+  function unit(name, n) {
+    return n + &#x27; &#x27; + name + (1 == n ? &#x27;&#x27; : &#x27;s&#x27;);
+  }
+
+  if (diff &#x3c; second) return unit(&#x27;millisecond&#x27;, diff);
+  if (diff &#x3c; minute) return unit(&#x27;second&#x27;, (diff / second).toFixed(0));
+  if (diff &#x3c; hour) return unit(&#x27;minute&#x27;, (diff / minute).toFixed(0));
+  if (diff &#x3c; day) return unit(&#x27;hour&#x27;, (diff / hour).toFixed(0));
+  return unit(&#x27;day&#x27;, (diff / day).toFixed(1));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , restarts = master.stats.restarts;
+
+// master stats
+sock.title(&#x27;Master&#x27;);
+if (os) sock.row(&#x27;os&#x27;, os.type() + &#x27; &#x27; + os.release());
+sock.row(&#x27;state&#x27;, master.state);
+sock.row(&#x27;started&#x27;, master.stats.start.toUTCString());
+sock.row(&#x27;uptime&#x27;, utils.<span class="apidocCodeKeywordSpan">formatDateRange</span>(new Date, master.stats.start));
+sock.row(&#x27;restarts&#x27;, restarts);
+sock.row(&#x27;workers&#x27;, active);
+sock.row(&#x27;deaths&#x27;, deaths);
+
+// resources
+if (os) {
+  sock.title(&#x27;Resources&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.utils.frame" id="apidoc.element.cluster.utils.frame">
+        function <span class="apidocSignatureSpan">cluster.utils.</span>frame
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">frame = function (obj){
+  return JSON.stringify(obj) + &#x27;\n&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.utils.toArray" id="apidoc.element.cluster.utils.toArray">
+        function <span class="apidocSignatureSpan">cluster.utils.</span>toArray
+        <span class="apidocSignatureSpan">(args, index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toArray = function (args, index){
+  var arr = []
+    , len = args.length;
+  for (var i = (index || 0); i &#x3c; len; ++i) {
+    arr.push(args[i]);
+  }
+  return arr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cluster.utils.unshiftListener" id="apidoc.element.cluster.utils.unshiftListener">
+        function <span class="apidocSignatureSpan">cluster.utils.</span>unshiftListener
+        <span class="apidocSignatureSpan">(obj, event, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unshiftListener = function (obj, event, fn){
+  if (Array.isArray(obj._events[event])) {
+    obj._events[event].unshift(fn);
+  } else {
+    obj._events[event] = [fn, obj._events[event]];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      master.call(&#x27;reportStats&#x27;, &#x27;disconnection&#x27;, data);
+    });
+  });
+}
+
+// light-weight requests
+if (options.lightRequests) {
+  utils.<span class="apidocCodeKeywordSpan">unshiftListener</span>(server, &#x27;request&#x27;, function(req, res){
+    master.call(&#x27;reportStats&#x27;, &#x27;light request&#x27;, res.id = ++id);
+    var end = res.end;
+    res.end = function(str, encoding){
+      res.end = end;
+      res.end(str, encoding);
+      master.call(&#x27;reportStats&#x27;, &#x27;light request complete&#x27;, res.id);
+    };
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
